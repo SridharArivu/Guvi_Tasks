@@ -1,0 +1,322 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+    margin: 0; 
+    font-family: "Poppins",sans-serif;  
+}
+.Resume_wrapper_div{
+    height: 150vh;
+    width: 65%;
+}
+/* <=== Resume Header Section Contains: Photo, short summary ===> */
+.Header_scetion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    z-index: 99;
+    height: 20%;
+    background-color: #565656;
+}
+.Header_scetion .profile_image_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 69%;
+    border: 3px dotted #febb2e;
+    border-radius: 50%;
+    border-width: 5px;
+}
+.profile_image_wrapper img{
+    height: 96%;
+    width: 96%;
+    border-radius: 50%;
+}
+.Header_scetion  .background_white_line{
+    position: absolute;
+    bottom: 2.6vh;
+    height: 15%;
+    width: 100%;
+    z-index: -999;
+    background-color: white;
+}
+.Header_scetion .name{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins",sans-serif;
+    font-size: 2vw;
+    font-weight: 500;
+    margin: 0;
+    color: #242625;
+    justify-content: center;
+    height: 25%;
+    border-radius: 1vh;
+    width: 45%;
+    bottom: 1vh;
+    background-color: #fabe28;
+}
+.short_summary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3%;
+    width: 100%;
+    border-bottom: 2px solid #cccccc;
+    background-color: white;
+}
+.short_summary p{
+    margin: 0;
+    font-size: 1.8vh;
+}
+
+/* <==== Common Classes ====> */
+
+    /* Icons  and Title Of the Content */
+.icons_and_title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 8vh;
+    width: 100%;
+    flex-direction: row;
+}
+.icons_and_title .icon_border{
+    height: 70%;
+    border: 2px dotted #fabe28;
+    border-width: 5px;
+    border-radius: 50%;
+}
+.icon_border .icon{
+    color: #fabe28;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #404b3d;
+    width: 100%;
+}
+.icons_and_title .title{
+    color: #535353;
+    font-weight: 500;
+    font-size: 2vw;
+    margin: 0;
+    margin-left: 2vh;
+}
+    /* Content, Heading and  SubHeading */
+.content{ font-weight: 500; font-size: 2vh; margin: 0;}
+.headline_1{ font-weight: 600; margin: 0; flex-shrink: 0;}
+.headline_2{ font-weight: 500; margin: 0; flex-shrink: 0;}
+
+    /* Wrapper Div Class for Content, Heading and  SubHeading */
+.Content_Title_Summary_and_Date{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+ }
+    /* Thin Line Design That separates Two Column */
+.separation_line{
+    height: 95%;
+    width: 2px;
+    background-color: #cccccc;
+}
+.resume_column_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+/* <=== Column 1 ===> */
+
+.column_1{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding-left: 3vh;
+}
+ /* <=== Profile Section ( Section 1, Column 1 ) ====> */
+.column_1 .profile_section{
+   margin-top: 2vw;
+}
+
+ /* <=== Skills Section  ( Section 2, Column 1 ) ===> */
+
+ .skills_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vw;
+    justify-content: center;
+ }
+ .skills_section .Technical_skills_wrapper, 
+ .skills_section .Additional_skills_wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    z-index: 1000;
+    justify-content: space-between;
+ }
+ .Technical_skills_wrapper .row_1, 
+ .Additional_skills_wrapper .row_1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height:100% ;
+    margin: 0;
+ }
+ .Technical_skills_wrapper .row_2,
+ .Additional_skills_wrapper .row_2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 60%;
+    height: 100%;
+ }
+ /* <== Skills  range Bar ===> */
+ /* skills range Wrapper Div Class */
+ .row_2 .range{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-right: 2vw;
+    height: 8px;
+    z-index: 1002;
+ }
+ /* skills range Background */
+ .range .skills_level{
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    height: 10px;
+    background-color: #ededed; 
+ }
+  /* skills range Progress Color */
+ .range .progress{
+    margin: 0;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, #f9bd29, #fde4a2);;
+ }
+  /* skills range Thumb */
+ .range .scroll_thumb{
+    position: absolute;
+    width: 1.2vw;
+    height: 1.2vw;
+    border-radius: 50%;
+    margin: 0;
+    border:2px solid #ededed;
+    background-color: white;
+ }
+
+  /* <=== Work Experience Section  ( Section 3, Column 1 ) ===> */
+ .Work_Expereince_Section{
+    margin-top: 1vw;
+ }
+
+
+/* <=== Column 2 ===> */
+ .column_2{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding-left: 3vh;
+}
+  /* <=== Project Section  ( Section 1, Column 2 ) ===> */
+.Project_Section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vw;
+}
+ /* <=== Education Section  ( Section 2, Column 2 ) ===> */
+.Education_Section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1vw;
+}
+
+
+@media only screen and (max-width: 1040px) {
+    .Resume_wrapper_div{
+        height: 300vh;
+        width: 90%;
+    }
+    .Header_scetion{
+        width: 100%;
+        z-index: 99;
+        height: 7%;
+    }
+    .Header_scetion .profile_image_wrapper{ height: 69%;}
+    .profile_image_wrapper img{height: 96%;}
+    .Header_scetion  .background_white_line{
+        bottom: 2.3vh;
+        height: 9%;
+    }
+    .Header_scetion .name{
+        font-size: 5vw;
+        height: 20%;
+        width: 55%;
+    }
+    .short_summary{height: 2vh;}
+    .short_summary p{ font-size: 0.8vh;}
+    .resume_column_wrapper{
+        display: flex;
+        justify-content: flex-start;
+        flex-direction:column;
+        height: 100%;
+        width: 100%;
+    }
+    .icons_and_title{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 8vh;
+        width: 100%;
+        flex-direction: row;
+    }
+    .icons_and_title .title{ font-size: 6vw;}
+
+    .column_1{
+        height: fit-content;
+        width: 100%;
+        padding-left: 1vh;
+    }
+    .range .scroll_thumb{
+        width:3vw;
+        height: 3vw;
+     }
+    .separation_line{ display: none;  height: 0%; width: 0px;}
+
+    .column_2{
+        height: fit-content;
+        width: 100%;
+        padding-left: 1vh;
+    }
+    .Project_Section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0vw;
+    }
+}

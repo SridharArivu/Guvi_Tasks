@@ -1,0 +1,168 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5vw;
+    width: 21vw;
+    height: 25vh;
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: transform 0.3s ease;
+}
+.cardContainer:hover {
+    transform: translateY(-5px); /* Move the card slightly upwards on hover */
+}
+.cardContainer h5{
+    margin: 0;
+    font-size: 2.5vh;
+    margin-top: 0.8vh;
+    width: 100%;
+    text-align: center;
+}
+.cardContainer .child_div{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    width: 100%;
+    height: 85%;
+}
+.cardContainer .child_div .event-image{
+    height: 80%;
+    width: 50%;
+    border-radius: 1vh;
+    margin: 1.7vh;
+}
+.cardContainer .child_div .details_div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 50%;
+}
+.cardContainer .child_div .details_div p{
+    margin: 0;
+    font-size: 2.2vh;
+    line-height: 2.3vh;
+    font-weight: 500
+}
+.cardContainer .child_div .details_div .active_btn{
+    background-color: #5c94ff;
+    color: #fff; 
+    height: fit-content;
+    padding: 1vh;
+    width: fit-content;
+    border: none; 
+    border-radius: 0.6vh; 
+    cursor: pointer;
+    font-size: 2vh;
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block;
+    transition: background-color 0.3s ease; 
+}
+.cardContainer .child_div .details_div .active_btn:hover {
+    background-color: #4b80ff; 
+}
+.cardContainer .child_div .details_div .inactive_btn{
+
+    background-color: #f5f5f5;
+    color: #999;
+    height: fit-content;
+    padding: 1vh;
+    width: fit-content;
+    border: 1px solid #ccc;  
+    border-radius: 0.6vh;;
+    cursor: not-allowed; 
+    font-size: 2vh;
+    text-align: center; 
+}
+
+@media only screen and (max-width: 1040px) and (min-height: 700px) {
+    body{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+    }
+    .cardContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1.5vw;
+        width: 45%;
+        height: 21%;
+        background-color: #fff; 
+        border-radius: 10px; 
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        transition: transform 0.3s ease;
+    }
+    .cardContainer .child_div .details_div p{
+        margin: 0;
+        font-size: 1.4vh;
+        line-height: 2.3vh;
+        font-weight: 500
+    }
+    .cardContainer .child_div .details_div .active_btn{
+        padding: 0.8vh;
+        font-size: 1.6vh;
+    }
+    .cardContainer .child_div .details_div .inactive_btn{
+        padding: 0.8vh 1vh;
+        font-size: 1.6vh;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .cardContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1.5vw;
+        width: 90%;
+        height: 25vh;
+        background-color: #fff; 
+        border-radius: 10px; 
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        transition: transform 0.3s ease;
+    }
+    .cardContainer .child_div .details_div p{
+        margin: 0;
+        font-size: 2.2vh;
+        line-height: 2.3vh;
+        font-weight: 500
+    }
+    .cardContainer .child_div .details_div .active_btn{
+        padding: 1vh;
+        font-size: 2vh;
+    }
+    .cardContainer .child_div .details_div .inactive_btn{
+        padding: 1vh 1.8vh;
+        font-size: 2vh;
+    }
+}

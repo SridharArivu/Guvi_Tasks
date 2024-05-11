@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="data.js"></script>
+    <link rel="stylesheet" href="styles/booking.css">
+</head>
+<body>
+    <div class="heading">
+        <h1 id="event-heading"> Event </h1>
+        <p id="no-of-seats">Number of available seats: </p>
+    </div>
+
+    <div class="Event_Container">
+        <img id="event-image" class="event-image" alt="event">
+
+        <div class="user_input_container">
+            <div>
+                <label >Name:</label>
+                <label >Email:</label>
+                <label >Phone no:</label>
+                <label >Number of seats:</label>
+                <label id="selected_seats">Name of Attendee 1:</label>
+            </div>
+            <div>
+                <input type="text" id="name" required>
+                <input type="email"  id="email" required>
+                <input type="tel"  id="phone" required>
+                <select id="seats_count" required>
+                    <option value="1">1</option>
+                </select>
+                <input type="text" id="Attendee" required>
+            </div>
+            <div class="buttons">
+                <button onclick="submitForm()">Submit</button>
+                <button onclick="window.location.href='/index.html'">Cancel</button>
+            </div>
+        </div>
+    </div>
+  
+
+    <script>
+        // Retrieve data from localStorage
+        const eventData = JSON.parse(sessionStorage.getItem("Selected-event"));
+
+        // Assign data to variables
+        const image = document.getElementById("event-image");
+        const eventHeading = document.getElementById("event-heading");
+        const seatsCount = document.getElementById("seats_count");
+        const seatsSelectLabel = document.getElementById("selected_seats");
+        const numberOfSeats = document.getElementById("no-of-seats");
+
+       
+        
+
+
+        // Populate options with a range of numbers
+        for (let i = 2; i <= eventData.seats; i++) {
+            const option = document.createElement("option");
+            option.value = i;
+            option.textContent = i;
+            seatsCount.appendChild(option);
+        }
+
+        // Populate input fields with data
+        image.src = eventData.image;
+        eventHeading.textContent += eventData.id;
+        seatsCount.addEventListener("change", function() {
+        // Update the text content of the label with the selected value
+        seatsSelectLabel.textContent = "Name of Attendee "+ seatsCount.value + ":";
+        });
+        numberOfSeats.textContent += eventData.seats;
+     
+
+        // Functions for submit and cancel actions
+        function submitForm() {
+            const selectedSeatsCount = parseInt(document.getElementById("seats_count").value);
+
+            let storedData = JSON.parse(sessionStorage.getItem("data"));
+            
+            const indexToUpdate = storedData.findIndex(event => event.id === eventData.id);
+            if (indexToUpdate !== -1) {
+                console.log(storedData[indexToUpdate].seats)
+                storedData[indexToUpdate].seats -= selectedSeatsCount;
+            }
+
+            // Update the stored data array in sessionStorage
+            sessionStorage.setItem("data", JSON.stringify(storedData));
+
+            // Redirect to Home Page
+            window.location.href = "/index.html";
+        }
+    </script>
+</body>
+</html>
