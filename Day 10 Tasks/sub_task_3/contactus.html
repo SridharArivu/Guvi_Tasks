@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+</head>
+<body>
+    <!-- Container Div for Form -->
+    <div class="Main_Container">
+        <h4 class="heading">Contact Us</h4>
+        <div class="input_Container">
+
+            <div class="input_wrapper_half_sized">
+                <label class="label">First name <span class="required">*</span></label>
+                <input type="text" class="input" required >
+            </div>
+
+            <div class="input_wrapper_half_sized">
+                <label class="label">Last name <span class="required">*</span></label>
+                <input type="text" class="input" required>
+            </div>
+            <div class="input_wrapper_half_sized">
+                <label class="label">Email <span class="required">*</span></label>
+                <input type="text" class="input" required>
+            </div>
+
+            <div class="input_wrapper_half_sized">
+                <label class="label">Phone Number <span class="required">*</span></label>
+                <input type="number" maxlength="10" class="input" required>
+            </div>
+
+            <div class="input_wrapper_full_sized">
+                <label class="label">Company Name <span class="required">*</span></label>
+                <input type="text" class="input" required>
+            </div>
+
+            <div class="input_wrapper_half_sized">
+                <label class="label">Postal Code <span class="required">*</span></label>
+                <input type="text" class="input" required>
+            </div>
+
+            <div class="input_wrapper_half_sized">
+                <label class="label">Country <span class="required">*</span></label>
+                <input type="text" class="input" required>
+            </div>
+
+            <div class="input_wrapper_full_sized">
+                <label class="label">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="4" cols="50" class="input_message"></textarea>
+                <!-- <input type="textarea" rows="4" cols="50" class="input_message" required> -->
+            </div>
+        </div>
+
+        <button class="submit_btn">Submit</button>
+    </div>
+</body>
+</html>
