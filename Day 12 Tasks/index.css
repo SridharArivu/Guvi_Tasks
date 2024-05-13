@@ -1,0 +1,330 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Poppins",sans-serif;
+    background-image: url('./Assets/BG-Image.png');
+    background-size: cover; 
+}
+h1{
+    color: rgb(255, 255, 255);
+    margin-top: -2vw;
+    user-select: none;
+}
+p{
+    font-weight: 500;
+    margin-top: -2vw;
+    user-select: none;
+}
+.table-responsive{
+    margin-top: -1vw;
+    height: 70%;
+    width: 60%; 
+    user-select: none;
+    border-radius: 2vh;
+}
+table {
+    height: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border-radius: 2vh;
+    user-select: none;
+}
+
+thead {
+    height: 8%;
+    width: 100%;
+    color: #F0ECF6;
+    user-select: none;
+    background-color: #36304a79;  
+     /* Top-left and top-right border radius */
+}
+thead th:nth-of-type(1){
+    width: 20%;
+    border-radius: 2vh 0 0 0;
+}
+thead th:nth-of-type(2){
+    width: 13.5%;
+    flex-shrink: 1;
+    text-align: start;
+}
+thead th:nth-of-type(3){
+    flex-shrink: 0;
+    width: 13.5%;
+    text-align: start;
+}
+thead th:nth-of-type(4){
+    border-radius: 0 2vh 0 0;
+    width: 30%;
+}
+
+
+tbody tr td:nth-of-type(1){
+    width: 20%;
+    text-align: center;
+}
+tbody tr td:nth-of-type(2){
+    width: 13.5%;
+    flex-shrink: 0;
+    text-align: start;
+}
+tbody tr td:nth-of-type(3){
+    width: 13.5%;
+    flex-shrink: 1;
+    text-align:start;
+}
+tbody tr td:nth-of-type(4){
+    width: 30%;
+    text-align:start;
+    padding-left: 5vh;
+}
+tbody tr{
+    width: 100%;
+    flex-shrink: 1;
+    transition: 0.3s;
+    border-radius: 2vh;
+}
+tbody tr:hover{
+    background-color: #f5f5f528;
+    cursor: pointer;
+    color: white;
+    transform: scale(1.02);
+}
+
+#buttons{
+    margin-top: -1vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 6vh;
+    width: 35%;
+    border-radius: 3vh;
+}
+.buttons_list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 6vh;
+    width: 60%;
+    border-radius: 3vh;
+    background-color: rgb(255, 255, 255);
+}
+button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+.active{
+    height: 4vh;
+    width: 4vh;
+    margin: -1.5vh;
+    border-radius: 50%;
+    color: white;
+    background-color:#4D84E7;
+}
+#First{
+    height: 100%;
+    width: 6vh;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5vh;
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: white;
+}
+#First:hover{background-color: #4D84E7; color: white; scale: 0.9;}
+#Previous{
+    height: 100%;
+    width: 6vh;
+    border-radius: 50%;
+    text-align: center;
+    flex-shrink: 0;
+    font-size: 2.5vh;
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: white;
+}
+#Previous:hover{background-color: #4D84E7; color: white; scale: 0.9;}
+#Next{
+    height: 100%;
+    width: 6vh;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5vh;
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: white;
+}
+#Next:hover{background-color: #4D84E7; color: white; scale: 0.9;}
+#Last{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5vh;
+    font-weight: 600;
+    transition: 0.3s;
+    background-color: white;
+}
+#Last:hover{background-color: #4D84E7; color: white; scale: 0.9;}
+#Disabled{
+    height: 100%;
+    width: 6vh;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5vh;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor:not-allowed;
+    background-color: white;
+}
+/* #4D84E7 */
+@media only screen and (max-width: 1040px) and (min-height: 700px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:flex-start;
+        height: 60vh;
+        width: 100%;
+        font-family: "Poppins",sans-serif;
+        background-image: url('./Assets/BG-Image-mobile.png');
+        background-size: cover;
+    }
+    h1{
+        color: rgb(255, 255, 255);
+        margin-top: 4vw;
+        font-size: 2vh;
+    }
+    p{
+        top: 0;
+        font-weight: 500;
+        margin-top: 2vw;
+        font-size: 1.5vh;
+    }
+    .table-responsive{
+        margin-top: 4vw;
+        display: flex;
+        align-items:flex-start;
+        justify-content: center;
+        height: 30%;
+        width: 100%; 
+        border-radius: 2vh;
+    }
+    table {
+        height: 30%;
+        width: 95%;
+    }
+    thead th{
+        font-size: 1vh;
+    }
+    tbody tr{
+        font-size: 1vh;
+    }
+    #buttons{
+        margin-top: 2vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 3vh;
+        width:80%;
+        border-radius: 3vh;
+    }
+    .buttons_list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 3vh;
+        width: 60%;
+        background-color: #88b947;
+        border-radius: 3vh;
+        background-color: rgb(255, 255, 255);
+    }
+    button{
+        background-color: white;
+        border: none;
+        text-align: center;
+        font-size: 1.5vh;
+        cursor: pointer;
+        user-select: none;
+    }
+    #First{
+        height: 100%;
+        width: 3vh;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 2vh;
+        font-weight: 600;
+        transition: 0.3s;
+        background-color: white;
+    }
+    #Previous{
+        height: 100%;
+        width: 3vh;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 2;
+        font-weight: 600;
+        transition: 0.3s;
+        background-color: white;
+    }
+    #Next{
+        height: 100%;
+        width: 3vh;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 2vh;
+        font-weight: 600;
+        transition: 0.3s;
+        background-color: white;
+    }
+    #Last{
+        height: 100%;
+        width: 3vh;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 2vh;
+        font-weight: 600;
+        transition: 0.3s;
+        background-color: white;
+    }
+    .active{
+        height: 2vh;
+        width: 2vh;
+        margin: -0.5vh;
+        border-radius: 50%;
+        color: white;
+        background-color:#4D84E7;
+    }
+    #Disabled{
+        height: 100%;
+        width: 3vh;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 1.5vh;
+        font-weight: 600;
+        transition: 0.3s;
+        cursor:not-allowed;
+        background-color: white;
+    }
+   
+}
