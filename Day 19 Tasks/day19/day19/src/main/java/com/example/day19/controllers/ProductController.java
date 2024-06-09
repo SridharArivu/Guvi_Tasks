@@ -1,5 +1,4 @@
 package com.example.day19.controllers;
-
 import com.example.day19.entity.Product;
 import com.example.day19.services.Impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ public class ProductController {
 
     @Autowired
     private ProductServiceImpl productService;
-
 
     @PostMapping
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
@@ -40,14 +38,12 @@ public class ProductController {
         }
         return "tableEmpty";
     }
-
     // Thymeleaf endpoint to render HTML form for adding a product
     @GetMapping("/add")
     public String addProductPage(Model model) {
         model.addAttribute("product", new Product());
         return "add-product";
     }
-
     @PostMapping("/add")
     public String addProductForm(Product product) {
         productService.addProduct(product);

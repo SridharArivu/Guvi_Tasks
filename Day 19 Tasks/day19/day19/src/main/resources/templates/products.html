@@ -19,7 +19,7 @@
     <th>Quantity</th>
     <th>Condition</th>
   </tr>
-  <tr th:each="product : ${products}">
+  <tr th:class="table_contents" th:each="product : ${products}">
     <td th:text="${product.id}">ID</td>
     <td>
       <img th:src="@{${product.mainImageURL}}" style="width: 40px; height: 50px;" alt="Product Image" />
