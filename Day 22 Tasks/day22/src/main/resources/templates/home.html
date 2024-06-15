@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body >
+<div th:th:class="container">
+    <div th:th:class="side_panel">
+        <div th:class="icons">
+            <a th:class="icon_wrapper" href="/">
+                <img th:class="icon" src="/images/Add.png" alt="add Employee"/>
+                <p>Add Employee</p>
+            </a>
+            <a th:class="icon_wrapper" href="/display/all">
+                <img th:class="icon" src="/images/table.png" alt="view Employies"/>
+                <p>View Table</p>
+            </a>
+        </div>
+
+    </div>
+    <div th:class="main_content">
+        <h2>Add a new Employee</h2>
+        <p>Fill out the form to add a new employee to your organization.</p>
+<!--         <div th:class="divide_line"></div> -->
+        <form
+                method="post"
+                th:action="@{/addEmployee}"
+                enctype="multipart/form-data"
+                th:object="${employee}"
+        >
+<!--
+
+
+<!--             <=== employeeID , Firstname and LastName ===> -->
+
+            <h4 th:class="sub_heading">Basic Details:</h4>
+            <div th:class="multiple_input_container">
+                <div th:class="input_container">
+                    <label for="employeeID">Employee ID:</label>
+                    <input th:class="input_field" type="text" th:field="*{employeeID}" name="employeeID" id="employeeID" required >
+                </div>
+
+                <div th:class="input_container">
+                    <label for="firstName">First Name</label>
+                    <input th:class="input_field" type="text" th:field="*{firstName}" name="firstName" id="firstName"  required autocomplete="off" >
+                </div>
+
+                <div th:class="input_container">
+                    <label for="lastName">Last Name</label>
+                    <input th:class="input_field" type="text" th:field="*{lastName}" name="lastName" id="lastName"  required autocomplete="off" >
+                </div>
+            </div>
+
+            <!-- <=== Email , Phone & Photo ===> -->
+
+            <div th:class="multiple_input_container">
+                <div th:class="input_container">
+                    <label for="email">Email</label>
+                    <input th:class="input_field" type="text" th:field="*{email}" name="email" id="email"  required  >
+                </div>
+
+                <div th:class="input_container">
+                    <label for="phone">Phone</label>
+                    <input th:class="input_field" type="tel" maxlength="10" th:field="*{phone}" name="phone" id="phone"  required autocomplete="off"  >
+                </div>
+                <div th:class="input_container">
+                    <label for="photo">Profile Picture</label>
+                    <input id="input-file" type="file" name="file" accept="image/png, image/jpeg"  required />
+                </div>
+            </div>
+
+            <!-- <=== Role & Gender ===> -->
+
+            <div class="multiple_input_container">
+                <div class="input_container">
+                    <label for="role">Role</label>
+                    <select class="input_field" th:field="*{role}" required>
+                        <option value="0">UI/UX Designer</option>
+                        <option value="1">Software Engineer</option>
+                        <option value="2">Product Manager</option>
+                        <option value="3">Data Scientist</option>
+                        <option value="4">System Administrator</option>
+                    </select>
+
+                </div>
+
+                <div class="input_container">
+                    <label for="Gender">Gender</label>
+                    <select class="input_field" th:field="*{gender}"  required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <h4 th:class="sub_heading">Location:</h4>
+
+            <!-- <=== Location ===> -->
+            <div th:class="multiple_input_container">
+                <div th:class="input_container" style="width: 65%;">
+                    <label for="streetAddress">Street Addres</label>
+                    <input style="width: 100%;" th:class="input_field" type="text" th:field="*{streetAddress}" name="streetAddress" id="streetAddress"   required>
+                </div>
+            </div>
+
+            <div th:class="multiple_input_container">
+                <div th:class="input_container">
+                    <label for="city">City</label>
+                    <input th:class="input_field" type="text" th:field="*{city}" name="city" id="city"  required >
+                </div>
+
+                <div th:class="input_container">
+                    <label for="state">State / province</label>
+                    <input th:class="input_field" type="text" th:field="*{state}" name="state" id="state"  required >
+                </div>
+            </div>
+            <div th:class="multiple_input_container">
+                <div th:class="input_container">
+                    <label for="Country">Country</label>
+                    <input th:class="input_field" type="text" th:field="*{country}" name="Country" id="Country"  required >
+                </div>
+
+                <div th:class="input_container">
+                    <label for="ZIPCode">ZIP Code</label>
+                    <input th:class="input_field"  type="tel" maxlength="6" th:field="*{zipCode}" name="ZIPCode" id="ZIPCode"  required >
+                </div>
+            </div>
+
+            <div th:class="buttons">
+                <a th:class="viewTable_BTN" href="/display/all">View Table</a>
+                <button th:class="Submit_BTN" type="submit">Add Employee</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+</body>
+</html>
+
+

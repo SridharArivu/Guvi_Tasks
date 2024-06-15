@@ -1,0 +1,172 @@
+.search_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 15%;
+}
+.seach_input_container{
+    display: flex;
+    align-items: center;
+    height: 4vh;
+    width: 28vh;
+    position: relative;
+}
+.seach_input_container .search_input_field{
+    height: 100%;
+    width: 100%;
+    font-weight: 500;
+    padding-left: 1.5vh;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+
+}
+#search_icon{
+    position: absolute;
+    right: 1vh;
+    color: #62667F;
+    margin-top: auto;
+    font-size: 2.5vh;
+    border: none;
+}
+.search_bar .add_new_emp{
+    border: 2px solid #6E57F4;
+    padding: 1vh 2vh;
+    text-decoration: none;
+    color: #6E57F4;
+    font-weight:500;
+    transition: 0.2s;
+    text-align: center;
+    border-radius: 1vh;
+    font-weight: 550;
+    background-color: white;
+}
+.search_bar .add_new_emp:hover{
+    border: 2px solid #6E57F4;
+    padding: 1vh 2vh;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    border-radius: 1vh;
+    font-weight: 550;
+    background-color: #6E57F4;
+}
+.search_bar .add_new_emp #plus_icon{
+    font-weight: 600;
+    margin-right: 1vh;
+}
+.display_card_wrapper{
+    display: grid;
+    height: 85%;
+    grid-template-columns: auto auto auto auto auto;
+    row-gap: 5vh;
+    margin-left: 4vh;
+    padding: 3vh;
+    overflow-y: scroll;
+}
+.Card_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50vh;
+    width: 33vh;
+    transition: 0.3s;
+    border-radius: 2vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.Card_wrapper .picture_wrapper{
+    display: flex;
+    align-items: center;
+    background-color:#9FC1FF;
+    border-radius: 7% 7% 60% 40% / 7% 7% 50% 10%;
+    justify-content: center;
+    width: 100%;
+    height: 55%;
+}
+.Card_wrapper .picture_wrapper .profile_picture{
+    width: 75%;
+    height: 90%;
+    border-radius:50%;
+    border: 3px solid #ffffff;
+    object-fit: cover;
+    transition: 0.3s;
+    object-position: 45% 15%;
+}
+
+.Card_wrapper:hover .picture_wrapper .profile_picture{
+    margin-bottom: 5vh;
+}
+.Card_wrapper .firstname_LastName{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+}
+.Card_wrapper .firstname,
+.Card_wrapper .lastname{
+    color: #313131;
+    padding: 0;
+    margin: 0;
+    font-size: 3.5vh;
+    font-weight: 500;
+}
+.Card_wrapper .role{
+    text-align: center;
+    font-size: 2vh;
+    padding: 0;
+    margin: 0;
+    margin-top: -1vh;
+}
+.Card_wrapper .emp_details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 1vh;
+
+}
+.Card_wrapper .row{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.Card_wrapper .emp_details .key{
+    margin: 0;
+    padding: 0;
+    width: 8vh;
+    flex-shrink: 0;
+    font-size:  1.6vh;
+    font-weight: 600;
+    color: #4E4E4E;
+}
+.Card_wrapper .emp_details .value{
+    margin: 0;
+    padding: 0;
+    font-size:  1.6vh;
+    font-weight: 500;
+    color: #5A5A5A;
+}
+.Card_wrapper .viewDetails_btn{
+    background-color:#9FC1FF;
+    padding: 1vh 2vh;
+    margin-top: 1vh;
+    color: #313131;
+    font-weight: 600;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-size: 2vh;
+    margin-bottom: auto;
+    border: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.Card_wrapper .viewDetails_btn:hover{
+    padding: 1.2vh 2.4vh;
+    font-size: 2.2vh;
+    text-decoration: none;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>employeeDetails</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/displayAll.css">
+    <link rel="stylesheet" href="/css/employeeDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        function goBack() {
+            window.location.href = "/display/all"; // Replace with your target URL
+        }
+    </script>
+
+</head>
+
+<body>
+<div th:class="container">
+    <div th:class="side_panel">
+        <div th:class="icons">
+            <a th:class="icon_wrapper" href="/">
+                <img th:class="icon" src="/images/Add.png" alt="add Employee"/>
+                <p>Add Employee</p>
+            </a>
+            <a th:class="icon_wrapper" href="/display/all">
+                <img th:class="icon" src="/images/table.png" alt="view Employies"/>
+                <p>View Table</p>
+            </a>
+        </div>
+
+    </div>
+    <div th:class="main_content">
+        <div th:class="search_bar">
+            <div>
+                <h2 th:class="sub_heading" th:text="'Employee (' + ${employee.firstName} + ')'"></h2>
+                <p>Selected employee details are shown below.</p>
+                <form
+                        method="post"
+                        th:action="@{/display-by-id}"
+                >
+                    <div th:class="seach_input_container">
+                        <input th:class="search_input_field" type="text" placeholder="search" name="search" id="search">
+                        <button type="submit" id="search_icon" class="fa-solid fa-magnifying-glass"></button>
+                    </div>
+                </form>
+
+            </div>
+            <a href="/" class="add_new_emp"><i id="plus_icon" class="fa-solid fa-plus"></i>Add New Employee</a>
+        </div>
+
+        <div class="Employee_wrapper">
+
+            <div class="employee_profile_name_role">
+                <img class="emp_profile"  th:src="'data:image/jpeg;charset=utf-8;base64,' + *{employee.image}" alt="profile"/>
+
+                <div class="employee_name_role">
+                    <h4 class="emp_name"  th:text="*{employee.firstName} + ' ' + *{employee.lastName}">Emmployee name</h4>
+                    <p class="emp_role" th:text="*{employee.role}">Software Developer</p>
+                </div>
+            </div>
+
+            <div class="divide_line"></div>
+            <div class="Employee_details_spliter">
+                <div>
+                    <h2 class="sub_heading" style="font-weight: 200; margin-top: 1vh;">Basic information</h2>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>Emp ID</td>
+                            <td th:text="': ' + *{employee.employeeID}">: 1234</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td th:text="': ' + *{employee.gender}">: Male</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td th:text="': ' + *{employee.email}">: sample@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td th:text="': ' + *{employee.phone}">: 8946018164</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div>
+                    <h2 class="sub_heading" style="font-weight: 200;">Address</h2>
+                    <label class="label" >Street</label>
+                    <p th:text="*{employee.streetAddress}">no 52, ramoorthy nagar</p>
+                    <div class="address_spliter">
+                        <div>
+                            <label class="label">City</label>
+                            <p th:text="*{employee.city}">Chennai</p>
+                        </div>
+                        <div>
+                            <label class="label">State</label>
+                            <p th:text="*{employee.state}">Tamil Nadu</p>
+                        </div>
+                    </div>
+
+
+                    <div class="address_spliter">
+                        <div>
+                            <label class="label">Country</label>
+                            <p th:text="*{employee.country}">India</p>
+                        </div>
+                        <div>
+                            <label class="label">ZipCode</label>
+                            <p th:text="*{employee.zipCode}">606601</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="Back_btn" onclick="goBack()"><i class="fa-solid fa-chevron-left"></i> Back</button>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
