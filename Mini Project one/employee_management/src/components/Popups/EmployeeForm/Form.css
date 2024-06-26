@@ -1,0 +1,139 @@
+.Popup_wrapper{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 4vh 3vh 3vh 4vh;
+    margin-left: -5vw;
+    border-radius: 1vh;
+    transition: filter 0.3s;
+    background-color:rgb(255, 255, 255);
+}
+
+
+.Popup_wrapper h2{
+    margin: 0;
+    padding: 0;
+    color: #273447;
+    
+}
+.Popup_wrapper p{
+    margin: 0;
+    padding: 0;  
+    color: #616B79;
+}
+.sub_heading{
+    margin: 0;
+    padding: 0;
+    margin-top: 2vh;
+    color: #434451;
+}
+form .close_btn{
+    position: absolute;
+    right: 1.3vh;
+    top: 1.3vh;
+    cursor: pointer;
+    font-size: 3.5vh;
+}
+form .multiple_input_container{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    gap: 2vh;
+}
+/* form .dual_input_container{
+    display: flex;
+    width: 75%;
+    margin-bottom: 2vh;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+form .input_container{
+    display: flex;
+    height: 7.5vh;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+}
+
+form .input_container label{
+    font-weight: 500;
+    color: #59524A;
+}
+form .input_container .input_field{
+    font-weight: 500;
+    height: 4vh;
+    width: 28vh;
+    padding-left: 1.5vh;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+}
+
+form .input_container #input-file {
+    opacity: 1;
+    z-index: 1;
+    cursor: pointer;
+    height: 100%;
+    width: 32vh;
+}
+
+
+.file-name {
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+}
+form .buttons{
+    display: flex;
+    width: 40%;;
+    flex-direction: row;
+    margin: 2vh;
+    justify-content: space-between;
+}
+form .buttons .viewTable_BTN{
+    color: #eef0f0;
+    font-weight: 600;
+    border: none;
+    border-style: none;
+    padding: 1.5vh 3vh;
+    font-size: 2vh;
+    text-decoration: none;
+    border-radius: 1vh;
+    background-color: #47322D;
+}
+form .buttons .Submit_BTN{
+    color: #eef0f0;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-style: none;
+    padding: 1.5vh 3vh;
+    font-size: 2vh;
+    border-radius: 1vh;
+    background-color: #343F4F;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance:texfeild;
+}
+
+input::file-selector-button {
+    height: 4vh;
+    width: 13vh;
+    cursor: pointer;
+    border: 2px solid #cbcbcb;
+    border-radius: 5px;
+  }

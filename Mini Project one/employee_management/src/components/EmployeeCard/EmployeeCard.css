@@ -1,0 +1,155 @@
+.Card_Wrapper{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height:22vh;
+    width:46vh;
+    transition: 0.8s;
+    cursor: pointer;
+    border-radius: 2vh;
+    transform-style: preserve-3d;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.Card_Wrapper:hover {
+    transform: rotateY(180deg);
+}
+
+.front{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    backface-visibility: hidden;
+    background-size: cover;
+    z-index: 1;
+    background-position: center center;
+}
+
+.front .img_wrapper{
+    height: 100%;
+    width: 38%;
+}
+.front .img_wrapper .profilePic{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    transition: 0.3s;
+    object-position: 55% 15%;
+    border-radius: 1vh 30% 30% 1vh/ 1vh 40% 70% 1vh;
+    transition: 0.3s;
+}
+.front .emp_details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 60%;
+    width: 55%;
+    margin-left: 1vh;
+}
+.front .emp_details .name{
+    margin: 0;
+    padding: 0;
+    color: #273447;
+    font-size: 3vh;
+}
+.front .emp_details .role{
+    margin: 0;
+    padding: 0;
+    margin-top: -1vh;
+}
+.front .emp_details .phone{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: #6F6F6F;
+    font-weight: 500;
+    margin-top: -1vh;
+}
+.front .emp_details .email{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: #6F6F6F;
+    font-size: 1.5vh;
+    font-weight: 600;
+    margin-top: -1vh;
+}
+.front .emp_details .icon{
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8vh;
+
+}
+
+.back{
+    transform: rotateY(180deg);
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+.Buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: auto;
+    margin-bottom: 2vh;
+}
+.back .Buttons .edit_btn,
+.back .Buttons .delete_btn{
+    border: none;
+    padding: 1vh 2vh;
+    color: white;
+    display: flex;
+    font-size: 2.4vh;
+    cursor: pointer;
+    border-radius: 1vh;
+    justify-content: center;
+   background-color: #408BBA;
+}
+.back .Buttons .delete_btn{
+   background-color: #DB4C3C;
+}
+.back .Buttons .edit_btn:hover{
+    background-color: #67a8d1;
+}
+.back .Buttons .delete_btn:hover{
+    background-color: #da6c60;
+}
+.update_icon,
+.delete_icon{
+    padding: 0;
+    margin-right: 1vh;
+    font-size: 3vh;
+}
+.delete_icon{ font-size: 3.4vh }
+
+.back p,
+.back h4{
+    margin: 0;
+    padding: 0;
+}
+.back h4{
+    margin-right: auto;
+    margin-left: 3vh;
+    margin-top: 1.5vh;
+    color: #273447;
+}
+.back p{
+    color: #6F6F6F;
+    margin-right: auto;
+    margin-left: 6vh;
+    margin-bottom: -0.8vh;
+    font-size: 2vh;
+}

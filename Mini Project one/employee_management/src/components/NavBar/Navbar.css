@@ -1,0 +1,45 @@
+.Navbar_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.Navbar_wrapper p{
+    padding: 0;
+    margin: 0;
+    margin-left: 1vh;
+    font-weight: 500;
+}
+.logo{
+    font-size: 6vh;
+    margin-left: 5vh;
+}
+
+
+.add_new_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh 2vh;
+    border: none;
+    border-radius: 1vh;
+    margin-right: 10vw;
+    color: white;
+    font-weight: 600;
+    font-size: 2vh;
+    margin-left: auto;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    background-color: #1676F3;
+}
+.add_new_btn:hover{
+    background-color: #1676f3da;
+}
+.add_new_btn .add_new_icon{
+    font-size: 3vh;
+    margin-right: 1.5vh;
+    height: 100%;
+    margin-bottom: 0.3vh;
+}
