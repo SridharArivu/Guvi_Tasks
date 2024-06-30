@@ -5,6 +5,7 @@ import EmployeeForm from '../../components/Popups/EmployeeForm/EmployeeForm'
 import Axios from '../../api/Axios'
 import EmptyTable from "../../Assets/empty_table.png"
 import EmployeeSkeleton from '../../LoadingScreens/EmployeeSkeleton'
+import { ThreeDots } from 'react-loader-spinner';
 
 
 const Home = ({show,handleShow,handleClose}) => {
@@ -12,6 +13,7 @@ const Home = ({show,handleShow,handleClose}) => {
   const[employeesList,setEmployeeList] = useState([]);
   const[updateClicked,setUpdateClicked] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const[updateLoading, setUpdateLoading] = useState(false);
 
   useEffect(()=>{
     getAllEmployees();
@@ -19,23 +21,38 @@ const Home = ({show,handleShow,handleClose}) => {
  
   const getAllEmployees = async () => {
     try {
-      const employeesList = await Axios.get("/get-all-employee", { headers: { "content-type": "application/json" } });
+      const employeesList = await Axios.get("/get-all-employee", { headers: { "Content-type": "application/json" } });
       if (employeesList.status === 200) {
         setEmployeeList(employeesList.data);
-        console.log(employeesList.data)
         setIsLoading(false);
+        return true;
       } else {
         setEmployeeList([]);
         setIsLoading(false);
+        return true
       }
     } catch (error) {
       console.log("from get all employee", error);
       setIsLoading(false);
+      return false;
     }
+  };
+  const spinnerStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex:'1',
   };
 
   return (
     <>
+    <ThreeDots
+            visible={updateLoading} height="80"
+            width="80" color="#4fa94d"
+            radius="9" ariaLabel="three-dots-loading"
+            wrapperStyle={spinnerStyle} wrapperClass=""
+        />
       <EmployeeForm
         show={show}
         handleClose={handleClose}
@@ -58,6 +75,8 @@ const Home = ({show,handleShow,handleClose}) => {
                 key={index}
                 isLoading={isLoading}
                 handleShow={handleShow}
+                setUpdateLoading={setUpdateLoading}
+                updateLoading={updateLoading}
                 setUpdateClicked={setUpdateClicked}
                 getAllEmployees={getAllEmployees}
               />

@@ -1,5 +1,4 @@
 import React from 'react'
-import Modal from 'react-bootstrap/Modal';
 import './SuccessOrFailed.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MdOutlineDone, MdOutlineClose} from "react-icons/md";

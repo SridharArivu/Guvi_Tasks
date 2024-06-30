@@ -14,6 +14,7 @@ import useUpdateEmployee from '../../../customHooks/useUpdateEmployee'
 
 
 
+
 const EmployeeForm = (props) => {
     
     const[loading, setLoading] = useState(false);
@@ -31,8 +32,7 @@ const EmployeeForm = (props) => {
         const result = await (props.updateClicked ?submitUpdatedForm(empDetails) : FormSubmission(empDetails)) ;
         setFetchResult(result);
         setSuccessMessage(true);
-        setLoading(false);
-        props.getAllEmployees();
+        if(props.getAllEmployees())setLoading(false);
       };
 
       const successOrFailurePopup = (value) => {

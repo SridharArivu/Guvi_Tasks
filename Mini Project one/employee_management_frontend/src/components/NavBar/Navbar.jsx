@@ -1,7 +1,6 @@
 import React from 'react'
 import './Navbar.css'
 import { FaReact } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
 import { MdPersonAddAlt1 } from "react-icons/md";
 
 const Navbar = ({handleShow}) => {

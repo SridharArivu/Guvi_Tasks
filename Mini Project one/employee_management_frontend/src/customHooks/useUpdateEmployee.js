@@ -10,7 +10,7 @@ const useUpdateEmployee = () => {
 
     const getUserById = async (id) => {
         try {
-            const response = await Axios.get(`/emp-by-id/${id}`, { headers: { "content-type": "application/json" } });
+            const response = await Axios.get(`/emp-by-id/${id}`, { headers: { "Content-type": "application/json" } });
             return response;
         } catch (error) {
             return error;
@@ -23,9 +23,7 @@ const useUpdateEmployee = () => {
             const { data } = response;
     
             Object.keys(data).forEach(key => {
-                // const { name, value, files } = data[key];
-                // console.log(key);
-                if (key == "image") {
+                if (key === "image") {
                     dispatch(setEmployeeDetails({ key: "file", value: data[key] }));
                 } else {
                     dispatch(setEmployeeDetails({ key: key, value: data[key] }));
@@ -57,10 +55,11 @@ const useUpdateEmployee = () => {
         };
     
         try {
-            const response = await Axios.put(`update-emp/${empDetails.employeeID}`, body, {
-                headers: { "Content-Type": "application/json" },
+            const response = await Axios.put(`/update-emp/${empDetails.employeeID}`, body, {
+                headers: { "Content-type": "application/json" },
             });
-            return true;
+            if(response.status === 200) return true;
+            else return false;
         } catch (error) {
             return false;
         }

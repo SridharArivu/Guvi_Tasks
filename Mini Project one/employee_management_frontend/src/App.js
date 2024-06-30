@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/NavBar/Navbar";
 
