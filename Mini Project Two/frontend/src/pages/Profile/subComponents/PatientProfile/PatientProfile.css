@@ -1,0 +1,91 @@
+.PatientProfile_wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-top: 10vh;
+}
+.profile_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 30%;
+    gap: 1vh;
+    flex-direction: column;
+}
+.profile_section .profile_image{
+    border: 2px solid #425C9D;
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    object-fit: cover;
+}
+.name{
+    margin: 0;
+    padding: 0;
+    color: #192238;
+}
+.email{
+    margin: 0;
+    padding: 0;
+    margin-top: -1vh;
+    color: #5F5F5A;
+}
+.logout_btn,
+.delete_acc_btn{
+    width: 100%;
+    padding: 1.5vh;
+    color: white;
+    background-color: #1A1C22;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5vh;
+    font-size: 2.2vh;
+    margin-top: 10vh;
+
+}
+.logout_btn:hover{background-color: #1a1c22ea;}
+.delete_acc_btn{
+    background-color: #DC2922;
+    margin-top: 1vh;
+}
+.delete_acc_btn:hover{background-color: #dc2822e8;}
+
+.Appoinment_section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    margin-left: 8vh;
+}
+
+.Appoinment_section .MyBookings,.Settings{
+    background-color: #2956FB;
+    border: none;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    font-size: 2.2vh;
+    color: white;
+    font-family: "Poppins",sans-serif;
+}
+
+.Appoinment_section .Settings{
+    background-color: #ffffff;
+    border: 1px solid #2956FB;
+    color: #192238;
+    margin-left: 5vh;
+}
+.MyBooking_heading{
+    color: #20172F;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+    font-size: 3.2vh;
+    margin-top: 5vh;
+}
+.myBookings_wrapper_grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 5vh;
+}

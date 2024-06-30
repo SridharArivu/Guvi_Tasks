@@ -1,0 +1,91 @@
+.BookAppointment_wrapper{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    position: relative;
+    height: fit-content;
+}
+
+.Doctor_info_wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.back_arrow{
+    padding: 0.2vh;
+    border-radius: 50%;
+    font-size: 3vh;
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    top: -6vh;
+    left: 0;
+    border: 2px solid #151515;
+}
+.back_arrow:hover{
+    background-color: #1653F1;
+    border:2px solid #1653F1;
+    color: white;
+}
+
+.About_and_feedback{
+    display: flex;
+    flex-direction: row;
+    margin-top:5vh;
+    gap: 8vh;
+    margin-left: 2vh;
+}
+.About,
+.feedback{
+    border: none;
+    color: #23232A;
+    cursor: pointer;
+    font-family: "Poppins",sans-serif;
+    font-size: 2.2vh;
+    border-bottom: 2px solid #8c88ad;
+}
+
+.book_Appoinment_wrapper{
+    width: 30%;
+}
+
+.book_Appoinment_wrapper .fee{
+    display: flex;
+    justify-content: space-between;
+    color: #71786E;
+    font-size: 2vh;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    width: 100%;
+    font-family: "Poppins",sans-serif;
+}
+
+.book_Appoinment_wrapper .fee span{
+    font-size: 2.3vh;
+    font-weight: 600;
+    color: #1B2025;
+}
+.Available_slots{
+    border: none;
+    padding: 1vh;
+    font-size: 2.2vh;
+    outline: none;
+    width: 100%;
+    border-bottom: 2px solid #71786E ;
+}
+.book_Appoinment_btn{
+    padding: 2vh;
+    background-color: #1A56F6;
+    border-radius: 1vh;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 2.2vh;
+    width: 100%;
+    margin-top: 3vh;
+}
+.book_Appoinment_btn:hover{
+    background-color: #1a55f6e2;
+}

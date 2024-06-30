@@ -1,0 +1,54 @@
+
+.Appoinment_table {
+    width: 125%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-collapse: collapse;
+  }
+  
+  .Appoinment_table thead {
+    background-color: #9DB09D;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  
+  .Appoinment_table th,
+  .Appoinment_table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dddddd;
+  }
+  
+
+  .Appoinment_table tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  .Appoinment_table td {
+    min-width: 12vh;
+  }
+  
+  .Appoinment_table td:nth-of-type(2) {
+    width: 10vh;
+  }
+  .prescribe-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.8vh 2vh;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vh;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0.5vh;
+    transition: background-color 0.3s ease; 
+  }
+  
+  .prescribe-button:hover {
+    background-color: #45a049;
+  }
+  
+  

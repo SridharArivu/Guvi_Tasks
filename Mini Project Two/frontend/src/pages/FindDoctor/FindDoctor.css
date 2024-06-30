@@ -1,0 +1,55 @@
+.findDoctor_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.findDoctor_wrapper h4:nth-of-type(1){
+    font-weight: 500;
+    font-size: 5vh;
+    margin-bottom: 2vh;
+    font-family: "Poppins", sans-serif;
+    color: #23171B;
+}
+/* //Section One : Search Doctor */
+.search_doctor_input_wrapper{
+    display: flex;
+    flex-direction: row;
+    height:6vh;
+    width: 32%;
+}
+.search_doctor_input_wrapper #searchDoctor{
+    background-color: #D0D8E6;
+    border: none;
+    height: 100%;
+    width: 75%;
+    outline: none;
+    color: #7D8496;
+    font-family: "Poppins", sans-serif;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    
+    border-radius: 1vh 0 0 1vh;
+}
+.search_doctor_input_wrapper .search_submit_btn{
+    background-color: #1653F1;
+    border: none;
+    outline: none;
+    color: white;
+    height: 100%;
+    width: 25%;
+    border-radius:0 1vh 1vh 0;
+}
+
+/* //Section Two : List of Doctor cards */
+.Doctor_list_cards_wrapper{
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 5vh;
+    justify-content: space-evenly;
+    width: 80%;
+   
+    height: fit-content;
+}

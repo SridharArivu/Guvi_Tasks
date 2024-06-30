@@ -1,0 +1,187 @@
+.Doctor_Profile_wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+    margin-top: 10vh;
+}
+.profile_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: 30%;
+    gap: 1vh;
+    flex-direction: column;
+}
+.section,
+.activeSection{
+    color: #243348;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+    width: 90%;
+    cursor: pointer;
+    padding: 2vh;
+    text-align: center;
+}
+.activeSection{
+    color: #2956FB;
+    border-radius: 1vh;
+    background-color: #D8DEF8;
+}
+.logout_btn,
+.delete_acc_btn{
+    width: 100%;
+    padding:2vh;
+    color: white;
+    background-color: #1A1C22;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5vh;
+    font-size: 2.2vh;
+    margin-top: 10vh;
+
+}
+.logout_btn:hover{background-color: #1a1c22ea;}
+.delete_acc_btn{
+    background-color: #DC2922;
+    margin-top: 1vh;
+}
+.delete_acc_btn:hover{background-color: #dc2822e8;}
+.Doctor_Profile_section_two{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+    margin-left: 8vh;
+}
+.approval_notification{
+    color:#874C20 ;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 1vh;
+    margin-bottom: 4vh;
+}
+  
+
+.doctor_profile_form{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+    gap: 2.5vh;
+    margin-bottom: 10vh;
+}
+.doctor_profile_form label{
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    font-family: "Poppins",sans-serif;
+}
+.doctor_profile_form input{
+    width: 90%;
+    padding: 1.2vh 2vh;
+    border-radius: 0.5vh;
+    outline: none;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    margin-top: 0.7vh;
+    font-family: "Poppins",sans-serif;
+    border: 2px solid rgb(200, 200, 200);
+}
+.vertical_align_wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    height: fit-content;
+    gap: 0.6vh;
+}
+.doctor_profile_form .gender,.special,.fee{
+    width: 100%;
+    padding: 1.2vh 2vh;
+    border-radius: 0.5vh;
+    outline: none;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    font-family: "Poppins",sans-serif;
+    border: 2px solid rgb(200, 200, 200);
+}
+
+
+.doctor_profile_form .addTimeSlot_btn{
+    background-color: black;
+    width: fit-content;
+    padding: 1.2vh 2vh;
+    border: none;
+    font-family: "Poppins",sans-serif;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.5vh;
+}
+input[type='time'],
+.day_input_field{
+    width: 50%;
+    padding: 1.2vh 2vh;
+    border-radius: 0.5vh;
+    outline: none;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    font-family: "Poppins",sans-serif;
+    border: 2px solid rgb(200, 200, 200);
+}
+.day_input_field{
+    width: 85%;
+    padding: 1.3vh 2vh;
+}
+.delete_time_slots_btn{
+    color: white;
+    position: absolute;
+    height: 3vh;
+    width: 3vh;
+    padding: 0.8vh;
+    border-radius: 50%;
+    background-color: #D82720;
+    right: -2vh;
+    cursor: pointer;
+    bottom: 1vh;
+}
+
+.image_upload[type='file']{
+    width: 100%;
+    padding: 0;
+    border-radius: 0.5vh;
+    outline: none;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    font-family: "Poppins",sans-serif;
+}
+input::file-selector-button {
+    background-color: black;
+    width: fit-content;
+    padding: 1.2vh 2vh;
+    border: none;
+    font-family: "Poppins",sans-serif;
+    color: white;
+    border-radius: 0.5vh;
+  }
+  .previous_profile{
+    width: 15%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+.form_submit_btn{
+    width: 100%;
+    color: white;
+    font-weight: 500;
+    font-family: "Poppins",sans-serif;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 2vh;
+    border-radius: 1vh;
+    background-color: #184CD1;
+}

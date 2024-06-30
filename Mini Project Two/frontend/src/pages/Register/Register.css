@@ -1,0 +1,101 @@
+.register_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+  
+}
+.register_component_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 65vh;
+    width: 70%;
+    margin-top: 10vh;
+    border: 3px solid #69C1FF;
+    border-radius: 4vh;
+}
+.img{
+    width: 50%;
+    height: 100%;
+    border-radius: 4vh 5vh 0 4vh ;
+    object-fit:cover;
+}
+.register_component_wrapper .register{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+    height: 100%;
+    border-radius:0 3vh 3vh 5vh;
+}
+.register h4{
+    color: #141517;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+}
+.register h4 span{ color:#3456C5 ;}
+.register_input_feild{
+    width: 60%;
+    border: none;
+    color: #454545;
+    padding: 3vh 3vh 1vh 1vh;
+    outline: none;
+    font-size: 2.2vh;
+    font-family: "Poppins", sans-serif;
+    border-bottom: 1px solid #69C1FF;
+}
+.input_feild:focus{
+    border-bottom: 2px solid #69C1FF;
+}
+.register_gender_and_role{
+    display: flex;
+    flex-direction: row;
+    width: 65%;
+    justify-content: space-between;
+}
+.register_gender_and_role h4{
+    font-size: 2vh;
+}
+.register_gender_and_role h4 select{
+    margin-left: 1.5vh;
+    border: none;
+    padding: 1vh;
+    outline: none;
+    color: #87878A;
+}
+.register input::file-selector-button {
+    border: none;
+    padding: 1.5vh 2vh;
+    border-radius: 1vh;
+    cursor: pointer;
+    background-color: #BAC7F6 ;
+}
+.register button{
+    color: white;
+    width: 70%;
+    height: 5vh;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    border: 2px solid #1A4CB8;
+    background-color: #1951E0;
+    margin-top: 2vh;
+}
+.register button:hover{
+    background-color: #1951e0e2;
+}
+
+.register p{
+    width: 70%;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    color:#5B5B5C;
+    font-size: 2vh;
+}
+.register p a{
+    color: #3456C5;
+    text-decoration: none;
+}
