@@ -36,16 +36,24 @@ public class DoctorController {
     }
 
     @PutMapping("/update-doctor-includes-image")
-    public ResponseEntity<DoctorDto> updateDoctorWithImage(@RequestPart("image") MultipartFile file,
-                                                  @RequestPart("user") DoctorDto request) throws IOException {
+    public ResponseEntity<DoctorDto> updateDoctorWithImage(
+            @RequestPart(value = "image", required = false) MultipartFile file,
+            @RequestPart("user") DoctorDto request) throws IOException {
 
-        String CurrentUser = JwtAuthenticationFilter.CURRENT_USER;
+        String currentUser = JwtAuthenticationFilter.CURRENT_USER;
 
-        Doctor doctor = doctorService.updateDoctorDetailsWithImage(request,file);
-        if(doctor != null){
-            return ResponseEntity.ok(doctorService.getDoctor(CurrentUser));
+        Doctor doctor;
+        if (file != null && !file.isEmpty()) {
+            doctor = doctorService.updateDoctorDetailsWithImage(request, file);
+        } else {
+            doctor = doctorService.updateDoctorDetailsWithImage(request,null);
         }
-        return ResponseEntity.notFound().build();
+
+        if (doctor != null) {
+            return ResponseEntity.ok(doctorService.getDoctor(currentUser));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PutMapping("/update-doctor")

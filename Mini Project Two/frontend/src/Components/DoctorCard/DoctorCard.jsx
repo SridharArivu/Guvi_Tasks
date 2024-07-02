@@ -1,12 +1,12 @@
 import React from 'react'
 import "./DoctorCard.css"
-import ImageOne from "./Images/imageOne.png"
 import { FaStar } from "react-icons/fa6";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import {setSelectedDoctor} from "../../Redux/Slices/findDoctorSlice"
 import { useDispatch } from 'react-redux';
+import { FaPrescriptionBottleMedical } from "react-icons/fa6";
 
-const DoctorCard = ({setBookButtonClicked,allign,doctor}) => {
+const DoctorCard = ({setBookButtonClicked,allign,doctor,showPrescription,handleViewPriscribedList,user}) => {
   const dispatch = useDispatch();
   
 
@@ -15,13 +15,15 @@ const DoctorCard = ({setBookButtonClicked,allign,doctor}) => {
     dispatch(setSelectedDoctor(doctor))
     localStorage.setItem("selectedDoctor",doctor);
   }
+
   
-  const imageUrl = `data:image/jpeg;charset=utf-8;base64,${doctor?.image}`;
+  
+  const imageUrl = `data:image/jpeg;charset=utf-8;base64,${doctor?.image || doctor?.doctorImage || user?.profilePicture }`;
   return (
     <div className='Doctor_card' style={allign === "findDoctor" ?{flexDirection:"column"} : {flexDirection:"row"}}>
         <img id='profile_pic' src={imageUrl} alt="Doctor Profile" />
         <div className={allign === "findDoctor" ? "" : "allign"}>
-          <h3 className='name'>Dr. {doctor?.username}</h3>
+          <h3 className='name'>Dr. {doctor?.username || doctor?.doctorName || user?.name}</h3>
           {allign === "findDoctor"
           ?
             <div className='specialist_and_ratings'>
@@ -37,8 +39,14 @@ const DoctorCard = ({setBookButtonClicked,allign,doctor}) => {
           
 
           <div className='hospitalName_and_book_appointment'>
-              <p className='hospital_name'>At Mount Adora hospital, Sylhet</p>
+            { !showPrescription &&  <p className='hospital_name'>At Mount Adora hospital, Sylhet</p> }
               {allign === "findDoctor" &&
+                showPrescription ?
+                <button onClick={() => handleViewPriscribedList(doctor)} disabled={!doctor?.isPrescribed} className='view-prescription-button'>
+                        View Prescription
+                        <FaPrescriptionBottleMedical/>
+                </button>
+                :
                 <button className='book_appointment' onClick={() => handleBookButton(doctor)}>
                     <IoIosArrowRoundForward className='arrow_icon'/>
                 </button>

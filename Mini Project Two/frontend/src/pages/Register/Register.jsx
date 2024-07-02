@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    const {registerUser} = useAuth();
+    const {registerUser,getUser} = useAuth();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
@@ -41,6 +41,7 @@ const Register = () => {
             dispatch(setAuthState({isAuth:false,role:null}));
             return;
         }
+        if(response) getUser();
         setLoading(false);
         const role = response.payload.role[0];
         dispatch(setAuthState({isAuth:true,role}));
@@ -74,7 +75,7 @@ const Register = () => {
                         </h4>
                     </div>
                     <input type="file" name="file" id="file"  placeholder='up' required onChange={handleChange}/>
-                    <button type='submit' onClick={handleSubmit} disabled={loading}>Sign Up</button>
+                    <button type='submit' className='register_submit_btn' onClick={handleSubmit} disabled={loading}>Sign Up</button>
                     <p>Already have an account? <a href='/login'>Login</a></p>
             </div>
         </div>

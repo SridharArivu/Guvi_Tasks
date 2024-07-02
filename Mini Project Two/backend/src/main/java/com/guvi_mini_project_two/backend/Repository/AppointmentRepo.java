@@ -16,4 +16,6 @@ public interface AppointmentRepo extends MongoRepository<Appointment, ObjectId> 
 
     @Query(value = "{ 'patientEmail': ?0 }", fields = "{ 'doctorEmail': 1, '_id': 0 }")
     List<String> findDoctorEmailsByPatientEmail(String patientEmail);
+
+    Appointment findByAppointmentId(Integer Id);
 }

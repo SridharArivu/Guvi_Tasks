@@ -24,9 +24,16 @@ const FindDoctor = () => {
           headers: { 'Content-Type': 'application/json' }
         });
         loopSetState(response.data);
+        console.log(response.data[0])
        
       } catch (error) {
-          navigate("/login")
+        if(error.status === 403){
+          window.alert("Session Expired Login again")
+        } 
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        localStorage.removeItem("user")
+        navigate("/login")
       }
     }
     

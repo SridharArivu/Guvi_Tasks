@@ -63,4 +63,6 @@
 }
 .profile_picture{
     cursor: pointer;
+    height: 80%;
+    border-radius: 50%;
 }

@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Home.css"
 import grid_image_doctors from "./Assets/Image_grid_doctors.png"
+import Axios from '../../api/Axios'
 
 
 const Home = () => {
+    useEffect(() => {
+        pingServer();
+      }, []);
+    
+      const pingServer = async () => {
+        try {
+          const response = await Axios.get("/ping");
+          if (response.status === 200) {
+            console.log(response.data);
+          }
+        } catch (error) {
+          console.error(error);
+          window.alert("Server Down, Please visit later");
+        }
+      };
   return (
     <div className='Home_wrapper'>
     <div className='section_1'>
@@ -30,7 +46,6 @@ const Home = () => {
         <div className='grid_image_wrapper'>
             <img className='grid_image' src={grid_image_doctors} alt="grid images of doctors" />
         </div>
-    
     </div>
     </div>
   )

@@ -20,7 +20,7 @@ public class DoctorDto {
     private String image;
     private Long phoneNumber;
     private String specialization;
-    private int fees;
+    private Integer fees;
     private List<TimeSlots> timeSlots;
     private Boolean verified;
 }

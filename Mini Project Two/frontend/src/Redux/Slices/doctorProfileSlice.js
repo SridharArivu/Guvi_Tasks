@@ -29,6 +29,7 @@ const initialState = {
         state.profile[field] = value;
       },
       addTimeSlot: (state, action) => {
+        
         state.profile.timeSlots.push(action.payload);
       },
       deleteTimeSlot: (state, action) => {

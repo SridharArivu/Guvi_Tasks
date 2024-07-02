@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://miniprojecttwo-428209.el.r.appspot.com';
 
 export const login = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
@@ -42,8 +42,12 @@ export const register = createAsyncThunk('auth/register', async (credentials, th
 export const logout = createAsyncThunk('auth/logout', async () => {
   localStorage.removeItem('token');
   localStorage.removeItem('role');
+  localStorage.removeItem('user');
   return;
 });
+
+const storedUser = localStorage.getItem('user');
+const initialUser = storedUser ? JSON.parse(storedUser) : {};
 
 const authSlice = createSlice({
   name: 'auth',
@@ -52,6 +56,7 @@ const authSlice = createSlice({
     role: localStorage.getItem('role') || '',
     loading: false,
     error: null,
+    user: initialUser
   },
   reducers: {
     setAuthState: (state, action) => {
@@ -59,6 +64,9 @@ const authSlice = createSlice({
       state.isAuthenticated = isAuth;
       state.role = role;
     },
+    setUser :  (state,action) => {
+      state.user = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -83,5 +91,5 @@ const authSlice = createSlice({
 });
 
 
-export const { setAuthState } = authSlice.actions;
+export const { setAuthState ,setUser} = authSlice.actions;
 export default authSlice.reducer;

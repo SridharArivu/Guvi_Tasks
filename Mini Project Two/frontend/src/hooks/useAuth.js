@@ -1,6 +1,7 @@
 // src/hooks/useAuth.js
 import { useSelector, useDispatch } from 'react-redux';
-import { login, logout,register } from '../Redux/Slices/authSlice';
+import { login, logout,register,setUser } from '../Redux/Slices/authSlice';
+import Axios from '../api/Axios';
 
 
 const useAuth = () => {
@@ -21,11 +22,26 @@ const useAuth = () => {
   const logoutUser = () => {
     return dispatch(logout());
   };
+        
+const getUser = async () =>{
+  try {
+    const response = await Axios.get("/get/profile", { headers: { 'Content-Type': 'application/json' }});
+    if(response?.status === 200){
+      const userData = response.data;
+      dispatch(setUser(userData));
+      localStorage.setItem('user', JSON.stringify(userData));
+    }
+
+  } catch (error) {
+    return false;
+  }
+}
 
   return {
     loginUser,
     logoutUser,
     registerUser,
+    getUser,
     isAuthenticated,
     role,
     loading,

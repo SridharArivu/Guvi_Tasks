@@ -39,9 +39,9 @@ public class DoctorServiceImpl implements DoctorService {
         doctorDto.setRoles(doctor.getUser().getRoles());
         doctorDto.setGender(doctor.getUser().getGender());
         doctorDto.setPhoneNumber(doctor.getPhoneNumber());
-        doctorDto.setSpecialization(doctor.getSpecialization());
-        doctorDto.setFees(doctor.getFees());
-        doctorDto.setTimeSlots(doctor.getTimeSlotsList());
+        doctorDto.setSpecialization(doctor.getSpecialization() != null ? doctor.getSpecialization() : null);
+        doctorDto.setFees(doctor.getFees() != null ? doctor.getFees() : null);
+        doctorDto.setTimeSlots(doctor.getTimeSlotsList() != null ? doctor.getTimeSlotsList() : null);
         doctorDto.setVerified(doctor.getVerified());
         doctorDto.setImage(doctor.getUser().getImage());
         return doctorDto;
@@ -53,6 +53,7 @@ public class DoctorServiceImpl implements DoctorService {
         List<DoctorDto> doctorDtoList = new ArrayList<>();
 
         for(Doctor doctor : doctors){
+            if(!doctor.getVerified()) continue;
             DoctorDto doctorDto =  new DoctorDto();
             doctorDto.setUsername(doctor.getUser().getName());
             doctorDto.setEmail(doctor.getEmail());
@@ -74,7 +75,9 @@ public class DoctorServiceImpl implements DoctorService {
 
             userObj.setEmail(request.getEmail());
             userObj.setUsername(request.getUsername());
-            userObj.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+            if (file != null && !file.isEmpty()) {
+                userObj.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+            }
             userObj.setName(request.getUsername());
             userRepository.save(userObj);
 
@@ -92,6 +95,7 @@ public class DoctorServiceImpl implements DoctorService {
         }
         return null; // or throw an exception if the doctor is not found
     }
+
 
     @Override
     public Doctor updateDoctorDetails(DoctorDto request) {

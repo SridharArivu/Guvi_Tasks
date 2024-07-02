@@ -93,19 +93,28 @@
 .vertical_align_wrapper{
     display: flex;
     flex-direction: column;
-    width: 32%;
+    width: fit-content;
     height: fit-content;
     gap: 0.6vh;
 }
-.doctor_profile_form .gender,.special,.fee{
-    width: 100%;
+.doctor_profile_form .gender,
+.doctor_profile_form .special,
+.doctor_profile_form .fee{
+    width: fit-content;
     padding: 1.2vh 2vh;
     border-radius: 0.5vh;
     outline: none;
+    margin-right: 3vh;
     color: rgb(100, 100, 100);
     font-weight: 500;
     font-family: "Poppins",sans-serif;
     border: 2px solid rgb(200, 200, 200);
+}
+.doctor_profile_form .special{
+    width: 90%;
+}
+.doctor_profile_form .fee{
+    margin-top: -4vh;
 }
 
 
@@ -119,9 +128,19 @@
     cursor: pointer;
     border-radius: 0.5vh;
 }
-input[type='time'],
+input[type='time']{
+    width: fit-content;
+    padding: 1.2vh 2vh;
+    border-radius: 0.5vh;
+    outline: none;
+    color: rgb(100, 100, 100);
+    font-weight: 500;
+    cursor: pointer;
+    font-family: "Poppins",sans-serif;
+    border: 2px solid rgb(200, 200, 200);
+}
 .day_input_field{
-    width: 50%;
+    width: fit-content;
     padding: 1.2vh 2vh;
     border-radius: 0.5vh;
     outline: none;
@@ -130,19 +149,15 @@ input[type='time'],
     font-family: "Poppins",sans-serif;
     border: 2px solid rgb(200, 200, 200);
 }
-.day_input_field{
-    width: 85%;
-    padding: 1.3vh 2vh;
-}
 .delete_time_slots_btn{
     color: white;
     position: absolute;
-    height: 3vh;
-    width: 3vh;
-    padding: 0.8vh;
+    height: 4.5vh;
+    width: 4.5vh;
+    padding: 0.3vh;
     border-radius: 50%;
     background-color: #D82720;
-    right: -2vh;
+    right: 0;
     cursor: pointer;
     bottom: 1vh;
 }
@@ -164,6 +179,7 @@ input::file-selector-button {
     width: fit-content;
     padding: 1.2vh 2vh;
     border: none;
+    cursor: pointer;
     font-family: "Poppins",sans-serif;
     color: white;
     border-radius: 0.5vh;

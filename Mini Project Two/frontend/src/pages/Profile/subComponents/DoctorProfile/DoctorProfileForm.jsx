@@ -17,9 +17,8 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
     dispatch(updateProfileField({ field:"isImageUploaded", value: true }))
   };
 
-
-  // const [localTimeSlots, setLocalTimeSlots] = useState([{ day: '', startTime: '', endTime: '' }]);
   const timeSlots = useSelector(state => state.doctorProfile.profile.timeSlots);
+
 
   const addTimeSlotHandler = () => {
     dispatch(addTimeSlot({ day: '', startTime: '', endTime: '' }));
@@ -38,16 +37,23 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
     dispatch(updateProfileField({ field: name, value: value }));
   }
 
-  const imageUrl = `data:image/jpeg;charset=utf-8;base64,${profile.image}`;
+  const imageUrl = `data:image/jpeg;charset=utf-8;base64,${profile?.image}`;
 
   const handleDocProfileSubmit = async (e) =>{
+    if(profile.timeSlots.length === 0 || profile.specialization === '' || profile.fees === ''){
+      window.alert("Please complete your profile before submitting.");
+      return
+    }
+    console.log("called")
     e.preventDefault()
     setSuccess(false);
     const {image,...rest} = profile;
     const formData = new FormData();
-    formData.append("user", new Blob([JSON.stringify(rest)], { type: 'application/json' }));
-    formData.append("image", profile.image);
     if(profile.isImageUploaded){
+      formData.append("image", profile.image);
+    }
+    formData.append("user", new Blob([JSON.stringify(rest)], { type: 'application/json' }));
+   
       try {
         const response = await Axios.put("/doctor/update-doctor-includes-image",formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
@@ -60,7 +66,6 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
       } catch (error) {
         console.error(error)
       }
-    } 
   }
 
  
@@ -69,6 +74,7 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
     <form className='doctor_profile_form' onSubmit={handleDocProfileSubmit} >
       <SuccessOrFailed
       success={success}
+      setSuccess={setSuccess}
       />
       <h3>Profile Information</h3>
       <div style={{display:'flex',flexDirection:'column'}}>
@@ -86,7 +92,7 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
         <input type="tel" name="phone" id="phone" maxLength='10' placeholder='Phone Number' value={profile.phone} onChange={handleProfileFeild} />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: '94%' }}>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", width: '90%' }}>
         <div className='vertical_align_wrapper'>
           <label htmlFor="gender">Gender</label>
           <select name="gender" className='gender' value={profile.gender} onChange={handleProfileFeild}>
@@ -100,7 +106,7 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
           <label htmlFor="specialization">Specialization</label>
           <select name="specialization" id='specialization' className='special' value={profile.specialization} onChange={handleProfileFeild}>
             <option value="">Select</option>
-            {specialties.map((specialty, index) => (
+            {specialties?.map((specialty, index) => (
               <option key={index} value={specialty}>
                 {specialty}
               </option>
@@ -115,12 +121,12 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
 
       <div>
         <label htmlFor="timeSlots">Time Slots*</label>
-        {timeSlots.map((slot, index) => (
-        <div key={index} style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: '84%',marginTop:'2vh',position:'relative' }}>
+        {timeSlots?.map((slot, index) => (
+        <div key={index} style={{ display: "flex", flexDirection: "row", alignItems: "center", width: '84%',marginTop:'2vh',position:'relative' }}>
          <div className='vertical_align_wrapper'>
          <label htmlFor="time">Day*</label>  
             <select
-                value={slot.day}
+                value={slot?.day}
                 required
                 style={{marginTop:'0.5vh'}}
                 className='day_input_field'
@@ -136,21 +142,21 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
                 <option value="Sunday">Sunday</option>
             </select>
           </div>
-          <div className='vertical_align_wrapper'>
+          <div className='vertical_align_wrapper' style={{marginLeft:'4vh'}}>
             <label htmlFor="time">Starting Time*</label>
             <input
                 required
                 type="time"
-                value={slot.startTime}
+                value={slot?.startTime}
                 onChange={(e) => handleChange(index, 'startTime', e.target.value)}
             />
           </div>
-          <div className='vertical_align_wrapper'>
+          <div className='vertical_align_wrapper' style={{marginLeft:'4vh'}}>
           <label htmlFor="time" >Ending Time*</label>
             <input
                 required
                 type="time"
-                value={slot.endTime}
+                value={slot?.endTime}
                 onChange={(e) => handleChange(index, 'endTime', e.target.value)}
             />
           </div>

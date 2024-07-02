@@ -15,6 +15,7 @@ const DoctorProfile = ({logoutUser}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { profile } = useSelector(state => state.doctorProfile);
+  const {user} = useSelector((state) => state.auth)
 
   const [section,setSection] = useState(0);
   const handleSection = (e) =>{
@@ -36,6 +37,13 @@ const DoctorProfile = ({logoutUser}) => {
       })
       if(response.data) setAppointments(response.data);
     } catch (error) {
+        if(error.status === 403){
+          window.alert("Session Expired Login again")
+        } 
+        localStorage.removeItem("token");
+        localStorage.removeItem("role");
+        localStorage.removeItem("user")
+        navigate("/login")
         console.error(error);
     }
   }
@@ -59,40 +67,44 @@ const DoctorProfile = ({logoutUser}) => {
         dispatch(updateProfileField({ field: "role", value: roles[0] }));
         dispatch(updateProfileField({ field: "specialization", value: specialization }));
         dispatch(updateProfileField({ field: "fees", value: fees }));
-        dispatch(updateProfileField({ field: "timeSlots", value: timeSlots }));
+        dispatch(updateProfileField({ field: "timeSlots", value: timeSlots !== null ? timeSlots : [] }));
         dispatch( setImage({image}));
       }
   
     } catch (error) {
-
+      console.error("Error fetching doctor profile:", error);
+      if(error.status === 403){
+        window.alert("Session Expired Login again")
+      } 
       localStorage.removeItem("token");
       localStorage.removeItem("role");
-      navigate("/login");
-      // if(error.response.status === 403) navigate("/login");
-      
-      console.error("Error fetching doctor profile:", error);
+      localStorage.removeItem("user")
+      navigate("/login")
     }
   };
 
   const[showPrescribeForm,seShowtPrescribeForm] = useState(false)
-  const [medicines, setMedicines] = useState([{ name: '', dosage: '', frequency: '' }]);
+  const [medicines, setMedicines] = useState([{id:1, name: '', dosage: '', frequency: '',quantity:'',price:'' }]);
   const[selectedAppointment,setSelectedAppoinment] = useState({});
+  
 
   const handlePrescribe = async (appointment) => {
     setSelectedAppoinment(appointment);
+    
     if(!showPrescribeForm){
       seShowtPrescribeForm(true);
+      if(selectedAppointment?.prescriptionList){
+        setMedicines(selectedAppointment.prescriptionList)
+      }
       return
     } 
-    const body = {
-      doctorEmail:selectedAppointment.doctorEmail,
-      patientEmail:selectedAppointment.patientEmail,
-      patientName:selectedAppointment.name,
-      prescriptionList:medicines,
-      isPatientConfirmed:false,
-    }
+    
+    const data = {
+      id: selectedAppointment.appointmentId,
+      prescriptionList: medicines
+    };
     try {
-      const response = await Axios.post("/prescription/save",body,{ headers: { 'Content-Type': 'application/json' }})
+      const response = await Axios.put("/appointment/update/appointment",data,{ headers: { 'Content-Type': 'application/json' }})
       if(response.status === 200){
         seShowtPrescribeForm(false);
       }
@@ -125,6 +137,7 @@ const DoctorProfile = ({logoutUser}) => {
           {section === 0 &&  
           <DoctorCard
           doctor={profile}
+          user={user}
           /> }
           {section === 1 &&  
           <>
@@ -153,12 +166,10 @@ const DoctorProfile = ({logoutUser}) => {
                 <td>{appointment.gender}</td>
                 <td>{appointment.timeSlots}</td>
                 <td>{appointment.bookedOn}</td>
-                <td>{appointment.status ? "Completed" : "Pending"}</td>
-                <td>  {appointment.prescribe ? (
-                        "Done"
-                    ) : (
+                <td>{appointment.isPatientConfirmed ? "Completed" : "Pending"}</td>
+                <td> 
                     <button className="prescribe-button" onClick={() => handlePrescribe(appointment)}>Prescribe</button>
-              )}
+              
               </td>
               </tr>
             ))}

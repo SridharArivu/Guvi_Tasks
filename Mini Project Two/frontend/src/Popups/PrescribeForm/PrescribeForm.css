@@ -6,7 +6,7 @@
     width: fit-content;
     position: relative;
     height: fit-content;
-    margin-left:-10vh;
+    margin-left:-30vh;
   }
   .PrescribeForm_close_icon{
     position: absolute;
@@ -28,6 +28,21 @@
     border-radius: 0.8vh;
     border: 1px solid #ccc;
   }
+  .medicine-row input[type='number'] {
+    flex: 1;
+    padding: 1.3vh;
+    width: 15vh;
+    border-radius: 0.8vh;
+    border: 1px solid #ccc;
+  }
+  .medicine-row input[type='tel'] {
+    flex: 1;
+    padding: 1.3vh;
+    width: 15vh;
+    border-radius: 0.8vh;
+    border: 1px solid #ccc;
+  }
+  
   
   button {
     padding: 1.3vh 2vh;

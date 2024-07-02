@@ -14,7 +14,8 @@ const PrescribeForm = ({showPrescribeForm,seShowtPrescribeForm,handlePrescribe,s
   };
 
   const addMedicine = () => {
-    setMedicines([...medicines, { name: '', dosage: '', frequency: '' }]);
+    const newId = medicines.length + 1;
+    setMedicines([...medicines, {id:newId ,name: '', dosage: '', frequency: '',quantity:'',price:'' }]);
   };
 
   const removeMedicine = (index) => {
@@ -52,6 +53,19 @@ const PrescribeForm = ({showPrescribeForm,seShowtPrescribeForm,handlePrescribe,s
             placeholder="Frequency"
             value={medicine.frequency}
             onChange={(e) => handleInputChange(index, 'frequency', e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Quantity"
+            value={medicine.quantity}
+            min={1} 
+            onChange={(e) => handleInputChange(index, 'quantity', e.target.value)}
+          />
+          <input
+            type="tel"
+            placeholder="Price"
+            value={medicine.price} 
+            onChange={(e) => handleInputChange(index, 'price', e.target.value)}
           />
           <button type="button" onClick={() => removeMedicine(index)}>Remove</button>
         </div>

@@ -1,0 +1,74 @@
+
+
+.prescription-checklist {
+  padding: 20px;
+  height: fit-content;
+  width: 110vh;
+  position: relative;
+ background-color: white;
+ margin-left: -20vh;
+}
+
+.prescription-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prescription-table th,
+.prescription-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.prescription-table th {
+  background-color: #f2f2f2;
+}
+
+.prescription-table input[type="number"] {
+  width: 60px;
+  text-align: center;
+}
+
+.prescription-table button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.prescription-table button:hover {
+  background-color: #45a049;
+}
+
+.prescription_btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+}
+
+.prescription_cancel_btn {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.prescription_cancel_btn:hover {
+  background-color: #ff4b4b;
+}
+
+.prescription_accept_btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.prescription_accept_btn:hover {
+  background-color: #45a049;
+}

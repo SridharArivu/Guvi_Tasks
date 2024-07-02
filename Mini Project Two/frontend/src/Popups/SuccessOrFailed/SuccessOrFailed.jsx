@@ -4,9 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MdOutlineDone, MdOutlineClose} from "react-icons/md";
 
-const SuccessOrFailed = ({handleClose,success}) => {
+const SuccessOrFailed = ({success,setSuccess}) => {
   return (
-    <Modal show={success} onHide={handleClose}>
+    <Modal show={success} onHide={() => setSuccess(false)}>
              <div className='SuccessOrFailed_wrapper'>
         <div className='icon_wrapper' style={{border: success ?  "5px dashed #02D367" : "5px dashed #FF535F"}}>
             {success ? 
@@ -24,7 +24,7 @@ const SuccessOrFailed = ({handleClose,success}) => {
             : "Sorry something went wrong" 
             }
         </p>
-        <button onClick={() => handleClose(true)} className='success_handle_btn' style={{backgroundColor: success ?  "#02D367" : "#FF535F"}}>
+        <button onClick={() => setSuccess(false)} className='success_handle_btn' style={{backgroundColor: success ?  "#02D367" : "#FF535F"}}>
             {success 
             ? "Done" 
             : "Try Again" 
