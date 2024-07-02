@@ -13,9 +13,7 @@ public interface DoctorService {
 
     public DoctorDto getDoctor(String email);
 
-    Doctor updateDoctorDetailsWithImage(DoctorDto request, MultipartFile file) throws IOException;
-
-    Doctor updateDoctorDetails(DoctorDto request);
+    Doctor updateDoctorDetails(DoctorDto request, MultipartFile file) throws IOException;
 
    List<DoctorDto> getAllDoctors();
 }

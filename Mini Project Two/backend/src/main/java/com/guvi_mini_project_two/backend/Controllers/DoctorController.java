@@ -22,6 +22,7 @@ public class DoctorController {
     @Autowired
     private DoctorServiceImpl doctorService;
 
+    //Retrieve Doctor By Email ID;
     @GetMapping()
     public ResponseEntity<DoctorDto> doctorByid(){
         String CurrentUser = JwtAuthenticationFilter.CURRENT_USER;
@@ -29,13 +30,16 @@ public class DoctorController {
                 .map(doctor -> new ResponseEntity<>(doctor, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
+
+    // Retrieve All Doctors who Completed Their Profiles
     @GetMapping("/all")
     public ResponseEntity<List<DoctorDto>> allDoctors(){
         List<DoctorDto> doctorDtoList = doctorService.getAllDoctors();
         return new ResponseEntity<>(doctorDtoList,HttpStatus.OK);
     }
 
-    @PutMapping("/update-doctor-includes-image")
+    // Doctor can Update his info like ( Username, email, Phone,Timeslots,fees,picture )
+    @PutMapping("/update-doctor")
     public ResponseEntity<DoctorDto> updateDoctorWithImage(
             @RequestPart(value = "image", required = false) MultipartFile file,
             @RequestPart("user") DoctorDto request) throws IOException {
@@ -44,9 +48,9 @@ public class DoctorController {
 
         Doctor doctor;
         if (file != null && !file.isEmpty()) {
-            doctor = doctorService.updateDoctorDetailsWithImage(request, file);
+            doctor = doctorService.updateDoctorDetails(request, file);
         } else {
-            doctor = doctorService.updateDoctorDetailsWithImage(request,null);
+            doctor = doctorService.updateDoctorDetails(request,null);
         }
 
         if (doctor != null) {
@@ -56,14 +60,4 @@ public class DoctorController {
         }
     }
 
-    @PutMapping("/update-doctor")
-    public ResponseEntity<DoctorDto> updateDoctor(@RequestPart("user") DoctorDto request){
-        String CurrentUser = JwtAuthenticationFilter.CURRENT_USER;
-
-        Doctor doctor = doctorService.updateDoctorDetails(request);
-        if(doctor != null){
-            return ResponseEntity.ok(doctorService.getDoctor(CurrentUser));
-        }
-        return ResponseEntity.notFound().build();
-    }
 }

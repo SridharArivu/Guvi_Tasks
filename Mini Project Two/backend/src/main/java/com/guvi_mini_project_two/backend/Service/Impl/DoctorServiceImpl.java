@@ -68,7 +68,7 @@ public class DoctorServiceImpl implements DoctorService {
 
 
     @Override
-    public Doctor updateDoctorDetailsWithImage(DoctorDto request, MultipartFile file) throws IOException {
+    public Doctor updateDoctorDetails(DoctorDto request, MultipartFile file) throws IOException {
         Optional<User> userOpt = userRepository.findByEmail(request.getEmail());
         if (userOpt.isPresent()) {
             User userObj = userOpt.get();
@@ -95,29 +95,6 @@ public class DoctorServiceImpl implements DoctorService {
         }
         return null; // or throw an exception if the doctor is not found
     }
-
-
-    @Override
-    public Doctor updateDoctorDetails(DoctorDto request) {
-        Doctor doctor =  doctorRepository.findByEmail(request.getEmail());
-        Optional<User> user = userRepository.findByEmail(request.getEmail());
-        User userObj = user.get();
-        userObj.setEmail(request.getEmail());
-        userObj.setUsername(request.getUsername());
-        userObj.setGender(request.getGender());
-        userObj.setName(request.getUsername());
-        doctor.setUser(userObj);
-        doctor.setVerified(true);
-        doctor.setSpecialization(request.getSpecialization());
-        doctor.setTimeSlotsList(request.getTimeSlots());
-        doctor.setFees(request.getFees());
-        doctor.setPhoneNumber(request.getPhoneNumber());
-
-        userRepository.save(userObj);
-        return doctorRepository.save(doctor);
-    }
-
-
 
 
 }

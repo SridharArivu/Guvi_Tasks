@@ -35,9 +35,9 @@ const PatientProfile = ({logoutUser}) => {
     }
   }
   const handleViewPriscribedList = (appoinment) => {
-    setShowpriscribedList(true)
     setSelectedAppoinment(appoinment)
     setSelectedMedications(appoinment?.prescriptionList)
+    setShowpriscribedList(true)
   }
   const handleAccept = async (medications) =>{
     const checkedMedications = medications.filter(medication => medication.checked);
@@ -102,7 +102,6 @@ const PatientProfile = ({logoutUser}) => {
                   setShowpriscribedList={setShowpriscribedList}
                   showPrescription={true}
                   />
-            
                 </>
               ))}
             </div>

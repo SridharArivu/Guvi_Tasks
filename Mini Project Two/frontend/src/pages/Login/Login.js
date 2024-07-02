@@ -1,15 +1,18 @@
 import React,{useState} from 'react'
 import "./Login.css"
 import useAuth from '../../hooks/useAuth'
-import {setAuthState,setUser} from "../../Redux/Slices/authSlice"
+import {setAuthState} from "../../Redux/Slices/authSlice"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Axios from '../../api/Axios'
+import Loader from '../../Assets/Loader'
 
 const Login = () => {
     const {loginUser,getUser} = useAuth();
+    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     
     const [Data, setData] = useState({
         email: '',
@@ -27,13 +30,16 @@ const Login = () => {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-       
+        setLoading(true)
         const response = await loginUser(Data);
         if(!response.payload){
-            dispatch({isAuth:false,role:null});
+            dispatch(setAuthState({isAuth:false,role:null}));
             return;
         }
-        if(response) getUser();
+        if(response){
+            setLoading(false)
+            getUser();
+        }
         
         const role = response.payload.role[0];
         dispatch(setAuthState({isAuth:true,role}));
@@ -58,7 +64,14 @@ const Login = () => {
                     </h4>
                 </div>
 
-                <button type='submit' className='login_submit_button' onClick={handleSubmit}>Login</button>
+                <button type='submit' className='login_submit_button' onClick={handleSubmit}>
+                    {!loading 
+                    ?
+                    "Login"
+                    :
+                    <Loader/>
+                    }
+                </button>
                 <p>Don't have an account? <a href='/register'>Register</a></p>
             </div>
         </div>

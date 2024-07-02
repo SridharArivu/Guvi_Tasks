@@ -5,9 +5,11 @@ import useAuth from '../../hooks/useAuth'
 import {setAuthState} from "../../Redux/Slices/authSlice"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Loader from "../../Assets/Loader"
 
 const Register = () => {
     const {registerUser,getUser} = useAuth();
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
@@ -20,13 +22,14 @@ const Register = () => {
         gender: 'Male',
         file: null,
       });
-    const handleChange = (e) => {
+      const handleChange = (e) => {
         const { name, value, files } = e.target;
+        const updatedValue = name === 'email' ? value.toLowerCase() : value;
         setData({
           ...Data,
-          [name]: files ? files[0] : value,
+          [name]: files ? files[0] : updatedValue,
         });
-    };
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,7 +78,13 @@ const Register = () => {
                         </h4>
                     </div>
                     <input type="file" name="file" id="file"  placeholder='up' required onChange={handleChange}/>
-                    <button type='submit' className='register_submit_btn' onClick={handleSubmit} disabled={loading}>Sign Up</button>
+                    <button type='submit' className='register_submit_btn' onClick={handleSubmit} disabled={loading}>
+                       {!loading ?
+                        "Sign Up"
+                        :
+                        <Loader/>
+                       }
+                    </button>
                     <p>Already have an account? <a href='/login'>Login</a></p>
             </div>
         </div>

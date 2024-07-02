@@ -20,7 +20,7 @@ const SuccessOrFailed = ({success,setSuccess}) => {
         </h4>
         <p className='description' style={{color: success ?  "#02D367" : "#FF535F"}}>
             {success 
-            ? "Employee Has been Updated"  
+            ? "Doctor details Has been Updated"  
             : "Sorry something went wrong" 
             }
         </p>

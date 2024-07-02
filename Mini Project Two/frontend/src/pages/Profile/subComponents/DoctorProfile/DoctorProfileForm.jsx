@@ -55,7 +55,7 @@ const DoctorProfileForm = ({getDoctorProfile}) => {
     formData.append("user", new Blob([JSON.stringify(rest)], { type: 'application/json' }));
    
       try {
-        const response = await Axios.put("/doctor/update-doctor-includes-image",formData, {
+        const response = await Axios.put("/doctor/update-doctor",formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
         if(response.status === 200) {
